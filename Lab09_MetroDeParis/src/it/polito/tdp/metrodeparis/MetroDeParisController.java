@@ -40,6 +40,7 @@ public class MetroDeParisController {
 
     @FXML
     void doCalcolaPercorso(ActionEvent event) {
+    	
 
     }
 
