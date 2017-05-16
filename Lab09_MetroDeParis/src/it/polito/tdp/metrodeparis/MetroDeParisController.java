@@ -40,6 +40,9 @@ public class MetroDeParisController {
 
     @FXML
     void doCalcolaPercorso(ActionEvent event) {
+    	txtResult.setText(model.trovaPercorsoMinimoConCambi(cmbPartenza.getValue(), cmbArrivo.getValue()).toString());
+    	//txtResult.setText(model.trovaPercorsoMinimo(cmbPartenza.getValue(), cmbArrivo.getValue()).toString());
+    	txtResult.appendText("\nTempo di percorrenza stimato: "+model.getTempo());
     	
 
     }

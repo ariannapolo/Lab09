@@ -1,16 +1,16 @@
 package it.polito.tdp.metrodeparis.model;
 
-import com.javadocmd.simplelatlng.*;
+import com.javadocmd.simplelatlng.LatLngTool;
 import com.javadocmd.simplelatlng.util.LengthUnit;
 
-public class Connessione {
-	private Fermata fermata1;
-	private Fermata fermata2;
+public class ConnessioneConLinea {
+	private FermataConnessione fermata1;
+	private FermataConnessione fermata2;
 	private double velocita;
 	private int idLinea;
 	private double peso;
 	
-	public Connessione(Fermata fermata1, Fermata fermata2, double velocita, int idLinea) {
+	public ConnessioneConLinea(FermataConnessione fermata1, FermataConnessione fermata2, double velocita, int idLinea) {
 		this.fermata1 = fermata1;
 		this.fermata2 = fermata2;
 		this.velocita = velocita;
@@ -18,24 +18,68 @@ public class Connessione {
 		peso = (LatLngTool.distance(fermata1.getCoords(), fermata2.getCoords(), LengthUnit.KILOMETER))/velocita;
 		
 	}
-	
-	public Fermata getFermata1() {
+
+	/**
+	 * @return the fermata1
+	 */
+	public FermataConnessione getFermata1() {
 		return fermata1;
 	}
-	public void setFermata1(Fermata fermata1) {
+
+	/**
+	 * @param fermata1 the fermata1 to set
+	 */
+	public void setFermata1(FermataConnessione fermata1) {
 		this.fermata1 = fermata1;
 	}
-	public Fermata getFermata2() {
+
+	/**
+	 * @return the fermata2
+	 */
+	public FermataConnessione getFermata2() {
 		return fermata2;
 	}
-	public void setFermata2(Fermata fermata2) {
+
+	/**
+	 * @param fermata2 the fermata2 to set
+	 */
+	public void setFermata2(FermataConnessione fermata2) {
 		this.fermata2 = fermata2;
 	}
+
+	/**
+	 * @return the velocita
+	 */
 	public double getVelocita() {
 		return velocita;
 	}
+
+	/**
+	 * @param velocita the velocita to set
+	 */
 	public void setVelocita(double velocita) {
 		this.velocita = velocita;
+	}
+
+	/**
+	 * @return the idLinea
+	 */
+	public int getIdLinea() {
+		return idLinea;
+	}
+
+	/**
+	 * @param idLinea the idLinea to set
+	 */
+	public void setIdLinea(int idLinea) {
+		this.idLinea = idLinea;
+	}
+
+	/**
+	 * @return the peso
+	 */
+	public double getPeso() {
+		return peso;
 	}
 
 	/**
@@ -45,6 +89,9 @@ public class Connessione {
 		this.peso = peso;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -55,6 +102,9 @@ public class Connessione {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -63,7 +113,7 @@ public class Connessione {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Connessione other = (Connessione) obj;
+		ConnessioneConLinea other = (ConnessioneConLinea) obj;
 		if (fermata1 == null) {
 			if (other.fermata1 != null)
 				return false;
@@ -78,19 +128,6 @@ public class Connessione {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "Da: "+fermata1+" A: "+fermata2+" peso: "+peso;
-	}
-
-	public double getPeso(){
-		return peso;
-	}
-
 	
 	
-	
-	
-
 }
